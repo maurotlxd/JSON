@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo4 | JSON</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<div id="resultados"></div>
+
+<script type="text/javascript">
+	
+//En este ejemplo vemos como imprimir los valores de un JSON en una etiqueta <div> mediante un bucle for,  e imprimirlos en consola.
+
+		var data = {"informacion" :[
+			{"nombre": "Mauro Enrique", "apellidos" : "Canales Zapata","edad" : 22,"deportes" : ["Futbol","Tenis"]},
+		    {"nombre" : "Juan", "apellidos" : "Canales Zapata", "edad" : 20,"deportes" : ["Futbol","Basquet"]},
+		    {"nombre" : "Gris Marianela", "apellidos" : "Canales Zapata", "edad" : 26,"deportes" : ["Futbol","Tenis","Voley"]}
+		   ]};
+
+//Otra manera sería guardar el contenido en una variable de la sgte manera.
+//var datos = data.informacion; , con esto ,en el for solo pondriamos datos.length.
+
+		var html = "";
+		   for (var i = 0; i < data.informacion.length; i++) {
+		   html += "<p>"+ data.informacion[i].nombre + " " + data.informacion[i].apellidos + " tiene "+ data.informacion[i].edad +" años y sus deportes favoritos son : "+data.informacion[i].deportes+"</p>";
+		   }
+
+//En este ejemplo se puede ver que la clave deportes contiene un array, el cual es impreso como un string ,pero tambien lo podriamos recorrer por posiciones :
+
+// data.informacion[i].deportes[0]  || data.informacion[i].deportes[1]  , etc
+
+	document.getElementById("resultados").innerHTML = html;
+	console.log(data);
+
+</script>
+</body>
+</html>
