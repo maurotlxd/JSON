@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo7 | JSON</title>
+	<meta charset="utf-8">
+</head>
+<body>
+    <form method="post" id="frmEnviar" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td><label for="nombre">Nombre</label></td>
+                <td><input type="text" name="nombre" id="nombre"></td>
+            </tr>
+            <tr>
+                <td><label for="apellidos">Apellidos</label></td>
+                <td><input type="text" name="apellidos" id="apellidos"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="enviar" id="enviar" value="Enviar Datos">
+                </td>
+            </tr>
+        </table>
+    </form>
+<div id="resultados"></div>
+
+<script type="text/javascript">
+	var request; 
+    if(window.XMLHttpRequest){ 
+        request = new XMLHttpRequest(); 
+    }else{ 
+        request = new ActiveXObject("Microsoft.XMLHTTP"); 
+    } 
+    document.addEventListener("submit",function(event){
+        event.preventDefault();
+        var nombre = document.getElementById("nombre").value;
+        var apellidos = document.getElementById("apellidos").value;
+        var informacion = "nombre="+nombre+"&apellidos="+apellidos;
+        request.onreadystatechange = function(){ 
+            if(request.readyState === 4 && request.status === 200){ 
+                var mensaje = JSON.parse(request.response); 
+                document.getElementById("resultados").innerHTML = mensaje[0].mensaje;
+            } 
+        } 
+        request.open("POST", "backend/data.php", true); 
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send(informacion); 
+
+            });
+ 
+</script>
+</body>
+</html>
