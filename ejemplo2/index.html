@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo2 | JSON</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<div id="resultados"></div>
+
+<script type="text/javascript">
+//En este ejemplo vemos como imprimir los valores de un JSON en una etiqueta <div> e imprimirlos en consola.
+		var data = [
+			{"nombre": "Mauro Enrique", "apellidos" : "Canales Zapata"},
+		   {"nombre" : "Juan", "apellidos" : "Canales Zapata"}
+		   ];
+		var html = "";
+		   for (var i = 0; i < data.length; i++) {
+		   html += "<p>"+ data[i].nombre + " " + data[i].apellidos +"</p>"
+		   }
+	
+	document.getElementById("resultados").innerHTML = html;
+	console.log(data);	
+</script>
+</body>
+</html>
