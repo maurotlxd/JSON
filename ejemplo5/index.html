@@ -21,7 +21,6 @@
 //var datos = data.informacion; , con esto ,en el for solo pondriamos datos.length.
 
 		var html = "";
-		var deportes = "";
 		   for (var i = 0; i < data.informacion.length; i++) {
 		   	html += "<p>"+ data.informacion[i].nombre + " " + data.informacion[i].apellidos + " tiene "+ data.informacion[i].edad +" años y sus deportes favoritos son :</p>";
 		   	for (var j = 0; j < data.informacion[i].deportes.length; j++) {
